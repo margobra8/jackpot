@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #000000;
+}
+
+.fit { /* set relative picture size */
+    max-width: 100%;
+    max-height: 100%;
+}
+.center {
+    display: float;
+    margin: auto;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slot1 {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 42.1%;
+    left: 5.3%;
+    height: 35.6%;
+}
+.slot2 {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 42%;
+    left: 18.15%;
+    height: 35.62%;
+}
+
+.slot3 {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 42%;
+    left: 30.85%;
+    height: 35.62%;
+}
+
+.hidden {
+    display: none;
+}
