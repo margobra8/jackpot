@@ -1,4 +1,15 @@
+/*
+Twitch Stream Jackpot para ElRichMC
 
+Copyright (c) 2017 Marcos Gómez
+Idea y diseño: ElRichMC, PatoGraphics
+
+Está prohibida la distribución no autorizada de 
+este material o parte de él.
+
+Source: http://github.com/margobra8/jackpot
+Contacto: https://twitter.com/margobra8
+*/
 
 function generar() {
     var imagen = 1 + Math.floor(Math.random() * 7);
@@ -42,7 +53,7 @@ $("#bg")[0].play();
 
 determinarPremios();
 
-setTimeout(function() {
+setTimeout(function () {
     $("#imga").fadeIn("50");
     setTimeout(function () {
         $("#imgb").fadeIn("50");
