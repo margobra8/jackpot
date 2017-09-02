@@ -23,6 +23,7 @@ Contacto: https://twitter.com/margobra8
         $(window).bind('resize', set_body_height);
         set_body_height();
     });
+
 </script>
 
 
@@ -33,18 +34,12 @@ Contacto: https://twitter.com/margobra8
     }
 
     body {
-        background-color: #00ff00;
+        background-color: #01FF02;
     }
 
     .fit {
         /* tamaño relativo a la ventana */
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    .center {
-        display: float;
-        margin: auto;
+        height: 90%;
     }
 
     .overlay {
@@ -53,50 +48,75 @@ Contacto: https://twitter.com/margobra8
         left: 0;
     }
 
-    .slot1 {
-        display: none;
-        background-color: white;
-        position: absolute;
-        top: 42.1%;
-        left: 5.3%;
-        height: 35.6%;
-    }
-
-    .slot2 {
-        display: none;
-        background-color: white;
-        position: absolute;
-        top: 42%;
-        left: 18.15%;
-        height: 35.62%;
-    }
-
-    .slot3 {
-        display: none;
-        background-color: white;
-        position: absolute;
-        top: 42%;
-        left: 30.85%;
-        height: 35.62%;
-    }
-
     .hidden {
         display: none;
+    }
+
+    #vid {
+        z-index: 1;
+    }
+
+    #alert-text {
+        padding: 15px;
+        text-shadow: 0px 0px 1px #000, 0px 0px 2px #000, 0px 0px 3px #000, 0px 0px 4px #000, 0px 0px 5px #000;
+    }
+
+    #alert-message,
+    #alert-user-message {
+        text-align: center;
+    }
+
+    #alert-user-message img {
+        vertical-align: middle;
+        height: 1em;
+    }
+
+    #alert-message>span>span {
+        display: inline-block;
+    }
+
+    #alert-text {
+        z-index: 6;
+    }
+
+    #alert-text-wrap {
+        z-index: 6;
+    }
+
+    section {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
     }
 </style>
 
 
-<div id="container" class="fit">
-    <video id="vid" class="overlay fit">
+<div id="container" class="section">
+    <div id="alert-text-wrap">
+        <div id="alert-text">
+            <div id="alert-message">{messageTemplate}</div>
+            <div id="alert-user-message">{userMessage}</div>
+        </div>
+    </div>
+    <video id="vid" class="hidden fit">
         <source id="file" src="rcl.mp4" type="video/mp4">
     </video>
-    <audio id="music">
-        <source id="jingle" src="audio.mp3" type="audio/mpeg">
-    </audio>
+</div>
+<audio id="music">
+    <source id="jingle" src="audio.mp3" type="audio/mpeg">
+</audio>
+
 </div>
 
 
 <script>
+    $(document).ready(function () {
+        $('#alert-text-wrap').width($("#vid").width() * 0.5);
+    });
+
+
     function generar() {
         var random = 1 + Math.floor(Math.random() * 15);
         return random;
@@ -108,45 +128,49 @@ Contacto: https://twitter.com/margobra8
 
         if (num == 1) {
             $("#file").attr("src", "Jackpot1.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "777";
         } else if (num <= 21 && num > 1) {
             $("#file").attr("src", "Jackpot4.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "FAIL";
         } else if (num <= 41 && num > 21) {
             $("#file").attr("src", "Jackpot6.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "RELOJ";
         } else if (num <= 56 && num > 41) {
             $("#file").attr("src", "Jackpot3.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "ENDER PEARL";
         } else if (num <= 71 && num > 56) {
             $("#file").attr("src", "Jackpot7.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "RICH";
         } else if (num <= 90 && num > 71) {
             $("#file").attr("src", "Jackpot5.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "MARTILLO";
         } else if (num <= 100 && num > 90) {
             $("#file").attr("src", "Jackpot2.mp4");
-            $("#jingle").attr("src", "ganar.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/ganar.mp3");
             return "BIT";
         } else {
             $("#file").attr("src", "Fail" + generar() + ".mp4");
-            $("#jingle").attr("src", "perder.mp3");
+            $("#jingle").attr("src", "https://cdn.rawgit.com/margobra8/jackpot/a382fe33/perder.mp3");
             return "NADA";
         }
 
     }
 
-/*     $("#vid")[0].play(); */
-
     determinarPremios();
 
     $("#music")[0].play();
+
+
+    setTimeout(function () {
+        $("#vid").fadeIn("slow");
+        $("#vid")[0].play();
+    }, 1250);
 /* 
     setTimeout(function () {
         $("#imga").fadeIn("50");
