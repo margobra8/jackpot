@@ -1,8 +1,7 @@
 <!--
 Twitch Stream Jackpot para ElRichMC
 
-Copyright (c) 2017 Marcos Gómez
-Idea y diseño: PatoGraphics, ElRichMC
+Copyright (c) 2017 Marcos Gómez, PatoGraphics, ElRichMC
 
 Está prohibida la distribución no autorizada de 
 este material o parte de él.
@@ -11,9 +10,7 @@ Source: http://github.com/margobra8/jackpot
 Contacto: https://twitter.com/margobra8
 -->
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 
 <script>
     function set_body_height() {
@@ -25,7 +22,6 @@ Contacto: https://twitter.com/margobra8
     });
 
 </script>
-
 
 <style>
     * {
@@ -92,7 +88,6 @@ Contacto: https://twitter.com/margobra8
     }
 </style>
 
-
 <div id="container" class="section">
     <div id="alert-text-wrap">
         <div id="alert-text">
@@ -107,7 +102,6 @@ Contacto: https://twitter.com/margobra8
 <audio id="music">
     <source id="jingle" src="audio.mp3" type="audio/mpeg">
 </audio>
-
 
 <script>
     $(document).ready(function () {
@@ -159,11 +153,8 @@ Contacto: https://twitter.com/margobra8
         }
 
     }
-
     determinarPremios();
-
     $("#music")[0].play();
-
     setTimeout(function () {
         $("#vid").fadeIn("slow");
         $("#vid")[0].play();
