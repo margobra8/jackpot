@@ -2,7 +2,7 @@
 Twitch Stream Jackpot para ElRichMC
 
 Copyright (c) 2017 Marcos Gómez
-Idea y diseño: ElRichMC, PatoGraphics
+Idea y diseño: PatoGraphics, ElRichMC
 
 Está prohibida la distribución no autorizada de 
 este material o parte de él.
@@ -23,7 +23,6 @@ Contacto: https://twitter.com/margobra8
         $(window).bind('resize', set_body_height);
         set_body_height();
     });
-
 </script>
 
 
@@ -91,6 +90,9 @@ Contacto: https://twitter.com/margobra8
     <video id="vid" class="overlay fit">
         <source id="file" src="rcl.mp4" type="video/mp4">
     </video>
+    <audio id="music">
+        <source id="jingle" src="audio.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 
@@ -106,35 +108,46 @@ Contacto: https://twitter.com/margobra8
 
         if (num == 1) {
             $("#file").attr("src", "Jackpot1.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "777";
         } else if (num <= 21 && num > 1) {
             $("#file").attr("src", "Jackpot4.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "FAIL";
         } else if (num <= 41 && num > 21) {
             $("#file").attr("src", "Jackpot6.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "RELOJ";
         } else if (num <= 56 && num > 41) {
             $("#file").attr("src", "Jackpot3.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "ENDER PEARL";
         } else if (num <= 71 && num > 56) {
             $("#file").attr("src", "Jackpot7.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "RICH";
         } else if (num <= 90 && num > 71) {
             $("#file").attr("src", "Jackpot5.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "MARTILLO";
         } else if (num <= 100 && num > 90) {
             $("#file").attr("src", "Jackpot2.mp4");
+            $("#jingle").attr("src", "ganar.mp3");
             return "BIT";
         } else {
             $("#file").attr("src", "Fail" + generar() + ".mp4");
+            $("#jingle").attr("src", "perder.mp3");
             return "NADA";
         }
+
     }
 
-    $("#vid")[0].play();
+/*     $("#vid")[0].play(); */
 
     determinarPremios();
 
+    $("#music")[0].play();
+/* 
     setTimeout(function () {
         $("#imga").fadeIn("50");
         setTimeout(function () {
@@ -143,6 +156,6 @@ Contacto: https://twitter.com/margobra8
                 $("#imgc").fadeIn("50");
             }, 350);
         }, 300);
-    }, 4000);
+    }, 4000); */
 
 </script>

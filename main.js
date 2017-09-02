@@ -20,6 +20,8 @@ function determinarPremios() {
     var num = Math.floor(Math.random() * (150 - 1 + 1) + 1);
     console.log(num);
 
+    var audio = new Audio('ganar.mp3');
+
     if (num == 1) {
         $("#imga, #imgb, #imgc").attr("src", "1.png");
         return "777";
@@ -47,6 +49,8 @@ function determinarPremios() {
         $("#imgc").attr("src", generar() + ".png");
         return "NADA";
     }
+
+    audio.play();
 }
 
 $("#bg")[0].play();
