@@ -3,6 +3,7 @@ Twitch Stream Jackpot para ElRichMC
 
 Copyright (c) 2017 Marcos Gómez, PatoGraphics, ElRichMC
 
+
 Está prohibida la distribución no autorizada de 
 este material o parte de él.
 
@@ -35,17 +36,13 @@ Contacto: https://twitter.com/margobra8
 
     .fit {
         /* tamaño relativo a la ventana */
-        height: 90%;
+        height: 700px;
     }
 
     .overlay {
         position: absolute;
         top: 0;
         left: 0;
-    }
-
-    .hidden {
-        display: none;
     }
 
     #vid {
@@ -95,8 +92,8 @@ Contacto: https://twitter.com/margobra8
             <div id="alert-user-message">{userMessage}</div>
         </div>
     </div>
-    <video id="vid" class="hidden fit">
-        <source id="file" src="rcl.mp4" type="video/mp4">
+    <video id="vid" class="fit" style="display:none">
+        <source id="file" src="" type="video/mp4">
     </video>
 </div>
 <audio id="music">
