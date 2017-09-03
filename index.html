@@ -83,19 +83,24 @@ Contacto: https://twitter.com/margobra8
         margin-right: -50%;
         transform: translate(-50%, -50%);
     }
-</style>
 
+    #main {
+        margin-left: 50%;
+    }
+</style>
+<div id="main">
 <div id="container" class="section">
     <video id="vid" class="fit" style="display:none">
         <source id="file" src="" type="video/mp4">
     </video>
 </div>
-<div id="alert-text-wrap">
-        <div id="alert-text">
+<div id="alert-text-wrap" style="width: 700px; display: block;">
+        <div id="alert-text" style="display: inline;">
             <div id="alert-message">{messageTemplate}</div>
             <div id="alert-user-message">{userMessage}</div>
         </div>
     </div>
+</div>
 <audio id="music">
     <source id="jingle" src="audio.mp3" type="audio/mpeg">
 </audio>
